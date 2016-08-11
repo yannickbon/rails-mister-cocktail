@@ -1,0 +1,25 @@
+<h2><%= @cocktail.name %></h2>
+
+<h3>Doses:</h3>
+
+<!-- TO DO: each over ingredients -->
+<ul>
+  <% @cocktail.doses.each do |dose| %>
+    <li><%= dose.ingredient.name %> - <%= dose.description %> - <%= link_to 'Remove dose', cocktail_dose_path(@cocktail, dose), method: :delete %></li>
+  <% end %>
+</ul>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <%= simple_form_for([@cocktail,@dose]) do |f| %>
+      <%= f.error_notification %>
+
+      <%= f.input :description %>
+      <%= f.collection_select(:ingredient_id, @available_ingredients, :id, :name )%>
+
+      <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>

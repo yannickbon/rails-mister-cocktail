@@ -1,0 +1,18 @@
+<div class="form_container">
+  <h1 class="text-center">Add a new cocktail</h1>
+  <div class="container">
+    <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <%= simple_form_for(@cocktail) do |f| %>
+        <%= f.error_notification %>
+
+        <%= f.input :name %>
+
+        <%= f.button :submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
